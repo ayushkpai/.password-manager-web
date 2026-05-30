@@ -13,7 +13,7 @@
 ActiveRecord::Schema[8.0].define(version: 2026_05_25_104041) do
   create_table "passwords", force: :cascade do |t|
     t.string "app"
-    t.string "password_digest"
+    t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

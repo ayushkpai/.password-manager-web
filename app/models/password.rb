@@ -1,3 +1,3 @@
 class Password < ApplicationRecord
-  has_secure_password
+  encrypts :password
 end
