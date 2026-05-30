@@ -1,9 +1,13 @@
 <h1>Passwords</h1>
 
-<% @passwords.each do |p| %>
-  <section class="password">
-    <div class="summary">
-        <h4><%= p.app %> &bull; <%= p.password %></h4>
-    </div>
-  </section>
-<% end %>
+<div class="password-list">
+  <% @passwords.each do |p| %>
+    <section class="password">
+      <h2><%= p.app %></h2>
+
+      <div class="password-value">
+        <%= p.password %>
+      </div>
+    </section>
+  <% end %>
+</div>
