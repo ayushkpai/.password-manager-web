@@ -29,6 +29,24 @@
   
   <%= render "layouts/add_password_modal" %>
   
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const icon = document.querySelector(".profile-icon");
+    const menu = document.getElementById("profileMenu");
+
+    if (!icon || !menu) return;
+
+    icon.addEventListener("click", function (e) {
+      e.stopPropagation();
+      menu.classList.toggle("show");
+    });
+
+    document.addEventListener("click", function () {
+      menu.classList.remove("show");
+    });
+  });
+</script>
+
   <body>
     <%= render "layouts/header" %>
     <%= yield %>

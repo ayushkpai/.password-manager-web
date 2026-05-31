@@ -433,3 +433,225 @@ h1 {
   display: flex;
   gap: 10px;
 }
+
+.app-logo {
+  width: 28px;
+  height: 28px;
+
+  border-radius: 8px;
+
+  object-fit: cover;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.app-logo {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px;
+
+  backdrop-filter: blur(10px);
+}
+
+.profile-icon {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  color: white;
+  font-weight: 600;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.profile-icon {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.profile-icon:hover {
+  transform: scale(1.08);
+}
+
+.profile-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* ICON */
+.profile-icon {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 600;
+  color: white;
+
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* DROPDOWN */
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  top: 50px;
+
+  width: 200px;
+
+  /* ❌ remove Bootstrap white */
+  background: rgba(10, 12, 20, 0.75) !important;
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 14px;
+
+  padding: 10px;
+
+  display: none;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+
+  z-index: 9999;
+}
+
+/* SHOW MENU */
+.dropdown-menu.show {
+  display: block;
+}
+
+/* USER NAME */
+.dropdown-user {
+  color: white;
+  font-weight: 600;
+  padding: 8px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 6px;
+}
+
+/* ITEMS */
+.dropdown-item {
+  display: block;
+  padding: 8px 10px;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+
+  border-radius: 8px;
+
+  transition: 0.2s;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* DELETE */
+.danger-btn {
+  color: #ff6b6b;
+}
+
+.dropdown-menu {
+  display: none;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu {
+  background: #fff;
+}
+
+.dropdown-menu {
+  background: rgba(10, 12, 20, 0.75) !important;
+  color: white !important;
+}
+
+.dropdown-item {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+.dropdown-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* make button_to look like link */
+.dropdown-menu form {
+  margin: 0;
+}
+
+.dropdown-menu button {
+  width: 100%;
+  text-align: left;
+
+  background: transparent;
+  border: none;
+
+  padding: 8px 10px;
+
+  color: rgba(255, 255, 255, 0.85);
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* danger actions */
+.danger-btn {
+  color: #ff6b6b !important;
+}
+
+.glass-navbar {
+  justify-content: space-between;
+}
