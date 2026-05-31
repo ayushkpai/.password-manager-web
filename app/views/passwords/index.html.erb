@@ -1,16 +1,18 @@
 <% content_for :title, "Passwords"  %>
 
-<div class="liquid-title"><h1>Passwords</h1></div>
-
-<div class="spotlight-wrapper">
-  <input
-    type="text"
-    id="search"
-    placeholder="Search passwords..."
-    onkeyup="filterPasswords()"
-    class="spotlight-input"
-    autofocus
-  />
+<div class="search-section">
+  <div class="spotlight-wrapper">
+    
+    <div class="shortcut-hint">
+      <input
+      type="text"
+      id="search"
+      placeholder="Search passwords..."
+      onkeyup="filterPasswords()"
+      class="spotlight-input"
+    />
+    <kbd>⌘</kbd><kbd>K</kbd></div>
+  </div>
 </div>
 
 <div class="password-list">
@@ -95,6 +97,25 @@
       document.querySelectorAll(".password-value").forEach(el => {
         hide(el);
       });
+    }
+  });
+</script>
+
+<script>
+  document.addEventListener("keydown", (e) => {
+    if (e.metaKey && e.key.toLowerCase() === "k") {
+      e.preventDefault();
+
+      const input = document.getElementById("search");
+      if (input) {
+        input.focus();
+        input.select();
+      }
+    }
+
+    if (e.key === "Escape") {
+      const input = document.getElementById("search");
+      if (input) input.blur();
     }
   });
 </script>
