@@ -10,8 +10,8 @@
  */
 
 /* =========================
- BACKGROUND (lighter, airy)
-========================= */
+    GLOBAL
+ ========================= */
 
 body {
   margin: 0;
@@ -28,23 +28,27 @@ body {
 }
 
 /* =========================
- TITLE
-========================= */
+    MAIN TITLE (VAULT)
+ ========================= */
 
 h1 {
   text-align: center;
   margin-top: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   font-size: 2.6rem;
   font-weight: 600;
 
   color: rgba(255, 255, 255, 0.9);
+
+  text-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55),
+    0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 /* =========================
- SPOTLIGHT (CLEAR GLASS)
-========================= */
+    SPOTLIGHT SEARCH
+ ========================= */
 
 .spotlight-wrapper {
   display: flex;
@@ -61,14 +65,12 @@ h1 {
 
   color: rgba(255, 255, 255, 0.9);
 
-  /* MUCH CLEARER GLASS */
-  background: rgba(255, 255, 255, 0.04); /* ↓ more transparent */
+  background: rgba(255, 255, 255, 0.04);
 
   border: 1px solid rgba(255, 255, 255, 0.18);
-
   border-radius: 18px;
 
-  backdrop-filter: blur(28px); /* ↑ stronger blur */
+  backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
 
   box-shadow:
@@ -82,17 +84,12 @@ h1 {
 
 .spotlight-input:focus {
   transform: scale(1.02);
-
   border-color: rgba(120, 170, 255, 0.6);
-
-  box-shadow:
-    0 0 0 4px rgba(120, 170, 255, 0.12),
-    0 30px 90px rgba(0, 0, 0, 0.45);
 }
 
 /* =========================
- LIST
-========================= */
+    PASSWORD LIST
+ ========================= */
 
 .password-list {
   max-width: 860px;
@@ -104,14 +101,13 @@ h1 {
 }
 
 /* =========================
- VERY CLEAR GLASS CARD
-========================= */
+    GLASS CARD (VAULT ITEM)
+ ========================= */
 
 .password {
   padding: 1.4rem;
   border-radius: 22px;
 
-  /* MAIN CHANGE: MUCH MORE TRANSPARENT */
   background: rgba(255, 255, 255, 0.035);
 
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -129,19 +125,11 @@ h1 {
 .password:hover {
   transform: translateY(-3px);
   border-color: rgba(120, 170, 255, 0.35);
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/* title */
-.password h2 {
-  margin: 0;
-  font-size: 1.2rem;
-  font-weight: 600;
 }
 
 /* =========================
- ROW
-========================= */
+    PASSWORD ROW
+ ========================= */
 
 .password-row {
   display: flex;
@@ -150,23 +138,24 @@ h1 {
   margin-top: 1rem;
 }
 
-/* password field (very soft glass) */
 .password-value {
   flex: 1;
 
   padding: 0.9rem 1rem;
   border-radius: 14px;
 
-  background: rgba(0, 0, 0, 0.15); /* lighter */
+  background: rgba(0, 0, 0, 0.15);
+
   border: 1px solid rgba(255, 255, 255, 0.1);
 
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+
   color: rgba(147, 197, 253, 0.95);
 }
 
 /* =========================
- COPY BUTTON (clean glass)
-========================= */
+    COPY BUTTON
+ ========================= */
 
 .copy-text-btn {
   padding: 0.55rem 0.95rem;
@@ -174,6 +163,7 @@ h1 {
   border-radius: 12px;
 
   background: rgba(255, 255, 255, 0.05);
+
   border: 1px solid rgba(255, 255, 255, 0.14);
 
   color: rgba(255, 255, 255, 0.85);
@@ -196,70 +186,250 @@ h1 {
   color: #22c55e;
 }
 
-.liquid-title {
+/* =========================
+    LOGIN PAGE (FIXED CENTER GLASS)
+ ========================= */
+
+.login-container {
+  height: 100vh;
+
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  margin: 3rem 0 2rem;
-  position: relative;
+  align-items: center;
 }
 
-.liquid-title::before {
-  content: "";
-  position: absolute;
+.login-form {
+  width: 100%;
+  max-width: 360px;
 
-  width: 320px;
-  height: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
 
-  background: radial-gradient(
-    circle,
-    rgba(96, 165, 250, 0.2) 0%,
-    rgba(96, 165, 250, 0.1) 40%,
-    transparent 75%
-  );
+  padding: 2rem;
 
-  filter: blur(40px);
-  z-index: 0;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
 }
 
-.liquid-title h1 {
-  position: relative;
-  z-index: 1;
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  padding: 0.8rem;
+  border-radius: 10px;
 
-  margin: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-  font-size: 3rem;
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  background: rgba(0, 0, 0, 0.2);
 
-  color: rgba(235, 245, 255, 0.95);
-
-  text-shadow:
-    0 0 20px rgba(96, 165, 250, 0.2),
-    0 10px 40px rgba(96, 165, 250, 0.1),
-    0 20px 60px rgba(0, 0, 0, 0.4);
+  color: white;
 }
 
-body::before,
-body::after {
-  content: "";
+.login-form input[type="submit"] {
+  margin-top: 0.5rem;
+
+  padding: 0.8rem;
+  border-radius: 10px;
+
+  border: none;
+
+  background: rgba(96, 165, 250, 0.8);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+  background: rgba(96, 165, 250, 1);
+}
+
+.logout-btn,
+.logout-link {
   position: fixed;
-  border-radius: 50%;
-  filter: blur(120px);
-  pointer-events: none;
+  top: 20px;
+  right: 20px;
+
+  padding: 0.6rem 1rem;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
 }
 
-body::before {
-  width: 400px;
-  height: 400px;
-  background: rgba(59, 130, 246, 0.18);
-  top: -100px;
-  left: -100px;
+.logout-btn:hover,
+.logout-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(96, 165, 250, 0.5);
 }
 
-body::after {
-  width: 350px;
-  height: 350px;
-  background: rgba(147, 197, 253, 0.12);
-  bottom: -100px;
-  right: -100px;
+/* ===== GLASS NAVBAR ===== */
+.glass-navbar {
+  position: sticky;
+  top: 0;
+
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+
+  z-index: 1000;
+}
+
+/* ===== GLASS BUTTON ===== */
+/* normal glass button (keep your existing one) */
+.glass-btn {
+  display: inline-block;
+
+  padding: 0.45rem 0.9rem;
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  transition: all 0.2s ease;
+
+  font-weight: 500;
+}
+
+.glass-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(96, 165, 250, 0.6);
+
+  transform: translateY(-1px);
+  color: white;
+}
+
+/* 🔥 BIG SIGN OUT BUTTON */
+.glass-btn-big {
+  padding: 0.6rem 1.2rem;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: white;
+}
+
+.glass-btn-big:hover {
+  background: rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 80, 80, 0.6);
+}
+
+.glass-btn.btn {
+  color: white !important;
+}
+
+.login-form input,
+.login-form .form-control {
+  background: rgba(0, 0, 0, 0.25) !important;
+  color: white !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+
+  border-radius: 10px;
+}
+
+.modal-content {
+  background: rgba(10, 12, 20, 0.75) !important;
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: white;
+  border-radius: 16px;
+}
+
+.modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-body .form-control {
+  background: rgba(0, 0, 0, 0.35) !important;
+  color: white !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+}
+
+.modal .btn-primary {
+  background: rgba(96, 165, 250, 0.9);
+  border: none;
+}
+
+.modal .btn-primary:hover {
+  background: rgba(96, 165, 250, 1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-form label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.75rem;
+
+  border-radius: 10px;
+
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  outline: none;
+}
+
+.glass-btn-danger {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+}
+
+.glass-btn-danger:hover {
+  background: rgba(255, 0, 0, 0.25);
+  border-color: rgba(255, 80, 80, 0.8);
+}
+
+.actions {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
 }

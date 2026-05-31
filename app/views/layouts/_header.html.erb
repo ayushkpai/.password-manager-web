@@ -1,0 +1,37 @@
+<nav class="glass-navbar px-3 py-2 d-flex align-items-center">
+
+  <div class="fw-bold text-white">
+    Password Manager
+  </div>
+
+  <div class="ms-auto d-flex align-items-center gap-3">
+
+    <span class="text-white fw-semibold">
+      <%= current_user.name.upcase if current_user %>
+    </span>
+
+    <% if current_user %>
+        <%= link_to "Add Password",
+            "#",
+            class: "glass-btn",
+            data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %>
+
+        <%= link_to "Edit Profile",
+            edit_user_path(current_user),
+            class: "glass-btn" %>
+
+        <%= button_to "Delete Account",
+            user_path(current_user),
+            method: :delete,
+            data: { confirm: "Are you sure" },
+            class: "glass-btn glass-btn-danger" %>
+
+        <%= button_to "Sign out",
+            logout_path,
+            method: :delete,
+            class: "btn btn-sm glass-btn" %>
+
+    <% end %>
+  </div>
+
+</nav>

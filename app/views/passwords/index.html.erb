@@ -1,5 +1,5 @@
 <div class="liquid-title">
-  <h1>Password Vault</h1>
+  <h1>Passwords</h1>
 </div>
 
 <!-- =========================
@@ -45,6 +45,18 @@
           Copy
         </button>
       </div>
+
+      <div class="actions">
+      <%= link_to "Edit",
+          edit_password_path(p),
+          class: "glass-btn" %>
+
+      <%= button_to "Delete",
+          password_path(p),
+          method: :delete,
+          data: { confirm: "Delete this password?" },
+          class: "glass-btn glass-btn-danger" %>
+    </div>
 
     </section>
   <% end %>

@@ -1,0 +1,21 @@
+<div class="login-container">
+  <h1>Sign Up</h1>
+
+  <%= form_with model: @user, url: signup_path, class: "login-form" do |f| %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: "form-control", autofocus: true %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit "Create Account" %>
+
+  <% end %>
+</div>
