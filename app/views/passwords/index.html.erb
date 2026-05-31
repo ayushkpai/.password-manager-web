@@ -1,13 +1,109 @@
-<h1>Passwords</h1>
+<div class="liquid-title">
+  <h1>Password Vault</h1>
+</div>
 
+<!-- =========================
+     SPOTLIGHT SEARCH
+========================= -->
+<div class="spotlight-wrapper">
+  <input
+    type="text"
+    id="search"
+    placeholder="Search passwords..."
+    onkeyup="filterPasswords()"
+    class="spotlight-input"
+    autofocus
+  />
+</div>
+
+<!-- =========================
+     PASSWORD LIST
+========================= -->
 <div class="password-list">
+
   <% @passwords.each do |p| %>
     <section class="password">
+
       <h2><%= p.app %></h2>
 
-      <div class="password-value">
-        <%= p.password %>
+      <div class="password-row">
+
+        <!-- PASSWORD (hold to reveal) -->
+        <div
+          class="password-value"
+          data-password="<%= p.password %>"
+          onmousedown="reveal(this)"
+          onmouseup="hide(this)"
+          onmouseleave="hide(this)">
+          ••••••••••••
+        </div>
+
+        <!-- GITHUB STYLE COPY -->
+        <button
+          class="copy-text-btn"
+          onclick="copyPassword('<%= j p.password %>', this)">
+          Copy
+        </button>
       </div>
+
     </section>
   <% end %>
+
 </div>
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+<script>
+  const hideTimers = new WeakMap();
+
+  // REVEAL PASSWORD
+  function reveal(el) {
+    if (hideTimers.has(el)) {
+      clearTimeout(hideTimers.get(el));
+    }
+
+    el.innerText = el.dataset.password;
+
+    const timer = setTimeout(() => {
+      hide(el);
+    }, 15000);
+
+    hideTimers.set(el, timer);
+  }
+
+  // HIDE PASSWORD
+  function hide(el) {
+    el.innerText = "••••••••••••";
+  }
+
+  // COPY (GitHub style)
+  function copyPassword(password, button) {
+    navigator.clipboard.writeText(password);
+
+    button.classList.add("copied");
+
+    setTimeout(() => {
+      button.classList.remove("copied");
+    }, 1200);
+  }
+
+  // SEARCH FILTER (Spotlight)
+  function filterPasswords() {
+    const query = document.getElementById("search").value.toLowerCase();
+
+    document.querySelectorAll(".password").forEach(card => {
+      const app = card.querySelector("h2").innerText.toLowerCase();
+      card.style.display = app.includes(query) ? "block" : "none";
+    });
+  }
+
+  // SECURITY: hide on tab switch
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      document.querySelectorAll(".password-value").forEach(el => {
+        hide(el);
+      });
+    }
+  });
+</script>

@@ -9,76 +9,257 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+/* =========================
+ BACKGROUND (lighter, airy)
+========================= */
+
 body {
-  background: #030712;
-  color: #f9fafb;
-  font-family: Inter, Arial, sans-serif;
   margin: 0;
-  padding: 2rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  background: radial-gradient(
+    circle at top,
+    #0b1220 0%,
+    #070a12 50%,
+    #05060c 100%
+  );
+
+  color: rgba(255, 255, 255, 0.92);
 }
+
+/* =========================
+ TITLE
+========================= */
 
 h1 {
   text-align: center;
-  font-size: 3rem;
-  margin-bottom: 2rem;
-  color: #60a5fa;
-}
-
-/* Container */
-.password-list {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* Card */
-.password {
-  background: #0f172a;
-  border: 1px solid #1e293b;
-  border-radius: 12px;
-  padding: 1.25rem;
+  margin-top: 2.5rem;
   margin-bottom: 1rem;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-  transition: all 0.2s ease;
+
+  font-size: 2.6rem;
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* =========================
+ SPOTLIGHT (CLEAR GLASS)
+========================= */
+
+.spotlight-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 4rem;
+}
+
+.spotlight-input {
+  width: 100%;
+  max-width: 620px;
+
+  padding: 1rem 1.2rem;
+  font-size: 1rem;
+
+  color: rgba(255, 255, 255, 0.9);
+
+  /* MUCH CLEARER GLASS */
+  background: rgba(255, 255, 255, 0.04); /* ↓ more transparent */
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(28px); /* ↑ stronger blur */
+  -webkit-backdrop-filter: blur(28px);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  outline: none;
+
+  transition: all 0.25s ease;
+}
+
+.spotlight-input:focus {
+  transform: scale(1.02);
+
+  border-color: rgba(120, 170, 255, 0.6);
+
+  box-shadow:
+    0 0 0 4px rgba(120, 170, 255, 0.12),
+    0 30px 90px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+ LIST
+========================= */
+
+.password-list {
+  max-width: 860px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* =========================
+ VERY CLEAR GLASS CARD
+========================= */
+
+.password {
+  padding: 1.4rem;
+  border-radius: 22px;
+
+  /* MAIN CHANGE: MUCH MORE TRANSPARENT */
+  background: rgba(255, 255, 255, 0.035);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+
+  transition: all 0.25s ease;
 }
 
 .password:hover {
-  border-color: #60a5fa;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  border-color: rgba(120, 170, 255, 0.35);
+  background: rgba(255, 255, 255, 0.05);
 }
 
-/* App name */
+/* title */
 .password h2 {
   margin: 0;
-  color: #f8fafc;
   font-size: 1.2rem;
-}
-
-/* Password field */
-.password-value {
-  margin-top: 0.75rem;
-  background: #111827;
-  border: 1px solid #1f2937;
-  border-radius: 8px;
-  padding: 0.75rem;
-  color: #93c5fd;
-  font-family: monospace;
-  font-size: 1rem;
-}
-
-/* Button */
-.btn {
-  display: block;
-  width: fit-content;
-  margin: 0 auto 2rem;
-  background: #2563eb;
-  color: white;
-  text-decoration: none;
-  padding: 0.8rem 1.5rem;
-  border-radius: 8px;
   font-weight: 600;
-  transition: 0.2s ease;
 }
 
-.btn:hover {
-  background: #3b82f6;
+/* =========================
+ ROW
+========================= */
+
+.password-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* password field (very soft glass) */
+.password-value {
+  flex: 1;
+
+  padding: 0.9rem 1rem;
+  border-radius: 14px;
+
+  background: rgba(0, 0, 0, 0.15); /* lighter */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: rgba(147, 197, 253, 0.95);
+}
+
+/* =========================
+ COPY BUTTON (clean glass)
+========================= */
+
+.copy-text-btn {
+  padding: 0.55rem 0.95rem;
+
+  border-radius: 12px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  color: rgba(255, 255, 255, 0.85);
+
+  cursor: pointer;
+  font-size: 0.9rem;
+
+  transition: all 0.2s ease;
+}
+
+.copy-text-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(120, 170, 255, 0.55);
+  transform: scale(1.05);
+}
+
+.copy-text-btn.copied {
+  background: rgba(34, 197, 94, 0.16);
+  border-color: rgba(34, 197, 94, 0.5);
+  color: #22c55e;
+}
+
+.liquid-title {
+  display: flex;
+  justify-content: center;
+  margin: 3rem 0 2rem;
+  position: relative;
+}
+
+.liquid-title::before {
+  content: "";
+  position: absolute;
+
+  width: 320px;
+  height: 120px;
+
+  background: radial-gradient(
+    circle,
+    rgba(96, 165, 250, 0.2) 0%,
+    rgba(96, 165, 250, 0.1) 40%,
+    transparent 75%
+  );
+
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.liquid-title h1 {
+  position: relative;
+  z-index: 1;
+
+  margin: 0;
+
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+
+  color: rgba(235, 245, 255, 0.95);
+
+  text-shadow:
+    0 0 20px rgba(96, 165, 250, 0.2),
+    0 10px 40px rgba(96, 165, 250, 0.1),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+body::before,
+body::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+body::before {
+  width: 400px;
+  height: 400px;
+  background: rgba(59, 130, 246, 0.18);
+  top: -100px;
+  left: -100px;
+}
+
+body::after {
+  width: 350px;
+  height: 350px;
+  background: rgba(147, 197, 253, 0.12);
+  bottom: -100px;
+  right: -100px;
 }
