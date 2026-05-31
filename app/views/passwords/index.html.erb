@@ -4,9 +4,6 @@
   <h1>Passwords</h1>
 </div>
 
-<!-- =========================
-     SPOTLIGHT SEARCH
-========================= -->
 <div class="spotlight-wrapper">
   <input
     type="text"
@@ -18,9 +15,6 @@
   />
 </div>
 
-<!-- =========================
-     PASSWORD LIST
-========================= -->
 <div class="password-list">
 
   <% @passwords.each do |p| %>
@@ -30,7 +24,6 @@
 
       <div class="password-row">
 
-        <!-- PASSWORD (hold to reveal) -->
         <div
           class="password-value"
           data-password="<%= p.password %>"
@@ -40,7 +33,6 @@
           ••••••••••••
         </div>
 
-        <!-- GITHUB STYLE COPY -->
         <button
           class="copy-text-btn"
           onclick="copyPassword('<%= j p.password %>', this)">
@@ -65,13 +57,9 @@
 
 </div>
 
-<!-- =========================
-     JAVASCRIPT
-========================= -->
 <script>
   const hideTimers = new WeakMap();
 
-  // REVEAL PASSWORD
   function reveal(el) {
     if (hideTimers.has(el)) {
       clearTimeout(hideTimers.get(el));
@@ -86,12 +74,10 @@
     hideTimers.set(el, timer);
   }
 
-  // HIDE PASSWORD
   function hide(el) {
     el.innerText = "••••••••••••";
   }
 
-  // COPY (GitHub style)
   function copyPassword(password, button) {
     navigator.clipboard.writeText(password);
 
@@ -102,7 +88,6 @@
     }, 1200);
   }
 
-  // SEARCH FILTER (Spotlight)
   function filterPasswords() {
     const query = document.getElementById("search").value.toLowerCase();
 
@@ -112,7 +97,6 @@
     });
   }
 
-  // SECURITY: hide on tab switch
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) {
       document.querySelectorAll(".password-value").forEach(el => {
