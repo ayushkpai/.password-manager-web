@@ -5,7 +5,6 @@
   <p>Have an account <%= link_to "Sign In", login_path %></p>
 
   <%= form_with model: @user, url: signup_path, class: "login-form" do |f| %>
-
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control", autofocus: true %>
 
@@ -19,6 +18,5 @@
     <%= f.password_field :password_confirmation %>
 
     <%= f.submit "Create Account" %>
-
   <% end %>
 </div>

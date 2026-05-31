@@ -1,8 +1,6 @@
 <% content_for :title, "Passwords"  %>
 
-<div class="liquid-title">
-  <h1>Passwords</h1>
-</div>
+<div class="liquid-title"><h1>Passwords</h1></div>
 
 <div class="spotlight-wrapper">
   <input
@@ -16,14 +14,11 @@
 </div>
 
 <div class="password-list">
-
   <% @passwords.each do |p| %>
     <section class="password">
-
       <h2><%= p.app %></h2>
 
       <div class="password-row">
-
         <div
           class="password-value"
           data-password="<%= p.password %>"
@@ -51,10 +46,8 @@
           data: { confirm: "Delete this password?" },
           class: "glass-btn glass-btn-danger" %>
     </div>
-
     </section>
   <% end %>
-
 </div>
 
 <script>

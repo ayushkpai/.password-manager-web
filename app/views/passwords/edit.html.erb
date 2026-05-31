@@ -1,11 +1,8 @@
 <div class="login-container">
-
   <div class="login-form">
-
     <h2>Edit Password</h2>
-
+    
     <%= form_with model: @password do |f| %>
-
       <%= f.label :app %>
       <%= f.text_field :app %>
 
@@ -13,9 +10,6 @@
       <%= f.text_field :password %>
 
       <%= f.submit "Update", class: "glass-btn" %>
-
     <% end %>
-
   </div>
-
 </div>

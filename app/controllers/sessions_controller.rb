@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
     if user&.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect_to passwords_path
+      redirect_to welcome_path
     else
       render :new, status: :unprocessable_entity
     end

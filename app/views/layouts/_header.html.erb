@@ -1,55 +1,37 @@
 <nav class="glass-navbar px-3 py-2 d-flex align-items-center w-100">
-
   <div class="d-flex align-items-center gap-2">
     <%= image_tag "logo.png", class: "app-logo" %>
-
-    <div class="fw-bold text-white">
-      <%= link_to "Password Manager", passwords_path %>
-    </div>
+    <div class="fw-bold text-white">Password Manager</div>
   </div>
 
   <div class="ms-auto d-flex align-items-center gap-3">
-
     <% if current_user %>
-
       <%= link_to "Add Password",
-          "#",
-          class: "glass-btn",
-          data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %>
+        "#",
+        class: "glass-btn",
+        data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %>
 
       <div class="profile-dropdown">
-
-        <div class="profile-icon" onclick="toggleMenu()">
-          <%= current_user.name.first.upcase %>
-        </div>
-
+        <div class="profile-icon" onclick="toggleMenu()"><%= current_user.name.first.upcase %></div>
         <div class="dropdown-menu" id="profileMenu">
-
-          <div class="dropdown-user">
-            <%= link_to current_user.name, welcome_path %>
-          </div>
+          <div class="dropdown-user"><%= link_to current_user.name, welcome_path %></div>
 
           <%= link_to "Edit Profile",
-              edit_user_path(current_user),
-              class: "dropdown-item" %>
+            edit_user_path(current_user),
+            class: "dropdown-item" %>
 
           <%= button_to "Sign Out",
-              logout_path,
-              method: :delete,
-              class: "dropdown-item danger-btn" %>
+            logout_path,
+            method: :delete,
+            class: "dropdown-item danger-btn" %>
 
           <%= button_to "Delete Account",
-              user_path(current_user),
-              method: :delete,
-              data: { confirm: "Are you sure?" },
-              class: "dropdown-item danger-btn" %>
-
+            user_path(current_user),
+            method: :delete,
+            data: { confirm: "Are you sure?" },
+            class: "dropdown-item danger-btn" %>
         </div>
-
       </div>
-
     <% end %>
-
   </div>
-
 </nav>
