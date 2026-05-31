@@ -1,5 +1,8 @@
 <div class="login-container">
+  <% content_for :title, "Sign Up"  %>
   <h1>Sign Up</h1>
+
+  <p>Have an account <%= link_to "Sign In", login_path %></p>
 
   <%= form_with model: @user, url: signup_path, class: "login-form" do |f| %>
 

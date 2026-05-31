@@ -5,7 +5,7 @@
     <%= image_tag "logo.png", class: "app-logo" %>
 
     <div class="fw-bold text-white">
-      Password Manager
+      <%= link_to "Password Manager", passwords_path %>
     </div>
   </div>
 
@@ -29,14 +29,14 @@
         <div class="dropdown-menu" id="profileMenu">
 
           <div class="dropdown-user">
-            <%= current_user.name %>
+            <%= link_to current_user.name, welcome_path %>
           </div>
 
           <%= link_to "Edit Profile",
               edit_user_path(current_user),
               class: "dropdown-item" %>
 
-          <%= button_to "Sign out",
+          <%= button_to "Sign Out",
               logout_path,
               method: :delete,
               class: "dropdown-item danger-btn" %>
