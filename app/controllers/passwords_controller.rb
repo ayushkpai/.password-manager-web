@@ -22,6 +22,16 @@ class PasswordsController < ApplicationController
     redirect_to passwords_path, notice: "Deleted"
   end
 
+  def create
+    @password = current_user.passwords.build(password_params)
+
+    if @password.save
+      redirect_to passwords_path, notice: "Password created"
+    else
+      render :index
+    end
+  end
+
   private
 
   def set_password
