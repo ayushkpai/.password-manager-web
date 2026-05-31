@@ -1,22 +1,29 @@
 <div class="login-container">
   <% content_for :title, "Sign Up"  %>
-  <h1>Sign Up</h1>
+  <% if current_user %>
+    <p>You are signed in</p>
+    <%= button_to "Sign Out",
+      logout_path,
+      method: :delete,
+      class: "btn btn-danger" %>
+  <% else %>
+    <h1>Sign Up</h1>
+    <p>Have an account <%= link_to "Sign In", login_path %></p>
 
-  <p>Have an account <%= link_to "Sign In", login_path %></p>
+    <%= form_with model: @user, url: signup_path, class: "login-form" do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control", autofocus: true %>
 
-  <%= form_with model: @user, url: signup_path, class: "login-form" do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control", autofocus: true %>
+      <%= f.label :email %>
+      <%= f.email_field :email %>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+      <%= f.label :password_confirmation %>
+      <%= f.password_field :password_confirmation %>
 
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-
-    <%= f.submit "Create Account" %>
+      <%= f.submit "Create Account" %>
+    <% end %>
   <% end %>
 </div>

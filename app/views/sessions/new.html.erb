@@ -1,15 +1,22 @@
 <div class="login-container">
-  <h1>Login</h1>
+  <% if current_user %>
+    <p>You are signed in</p>
+    <%= button_to "Sign Out",
+      logout_path,
+      method: :delete,
+      class: "btn btn-danger" %>
+  <% else %>
+    <h1>Login</h1>
+    <p>Don't have an account <%= link_to "Sign Up", signup_path %></p>
+    
+    <%= form_with url: login_path, class: "login-form" do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
 
-  <p>Don't have an account <%= link_to "Sign Up", signup_path %></p>
+      <%= f.label :password %>
+      <%= f.password_field :password %>
 
-  <%= form_with url: login_path, class: "login-form" do |f| %>
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true %>
-
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-
-    <%= f.submit "Sign In" %>
+      <%= f.submit "Sign In" %>
+    <% end %>
   <% end %>
 </div>
