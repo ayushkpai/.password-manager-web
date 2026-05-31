@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   delete "/logout", to: "sessions#destroy"
 
+  get "/welcome", to: "sessions#welcome"
+
   resources :passwords
   resources :users, only: [ :edit, :update, :destroy ]
 end

@@ -655,3 +655,65 @@ h1 {
 .glass-navbar {
   justify-content: space-between;
 }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgba(255, 255, 255, 0.92) !important;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.page-title {
+  color: white;
+}
+
+:root {
+  --text-color: rgba(0, 0, 0, 0.85);
+  --heading-color: rgba(0, 0, 0, 0.9);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: rgba(255, 255, 255, 0.85);
+    --heading-color: rgba(255, 255, 255, 0.95);
+  }
+}
+
+body {
+  color: var(--text-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+}
+
+body {
+  background: radial-gradient(circle at top, #0b1220, #05060c);
+}
+
+a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
+  transition: 0.2s ease;
+}
+
+a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 165, 250, 0.8);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.dropdown-item {
+  text-decoration: none;
+}

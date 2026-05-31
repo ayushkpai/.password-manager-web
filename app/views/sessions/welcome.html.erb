@@ -1,0 +1,8 @@
+<h1>Welcome</h1>
+
+<% if current_user %>
+    <h2>Hello <%= current_user.name %></h2>
+    <h3><%= link_to "Passwords", passwords_path %></h3>
+<% end %>
+
+<%= image_tag "logo.png" %>
