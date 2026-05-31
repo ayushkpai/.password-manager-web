@@ -32,8 +32,7 @@ class PasswordsController < ApplicationController
     end
   end
 
-  private
-
+private
   def set_password
     @password = current_user.passwords.find(params[:id])
   end
