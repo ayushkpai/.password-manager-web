@@ -11,7 +11,7 @@ class PasswordsController < ApplicationController
 
   def update
     if @password.update(password_params)
-      redirect_to passwords_path, notice: "Updated"
+      redirect_to passwords_path
     else
       render :edit
     end
@@ -19,14 +19,14 @@ class PasswordsController < ApplicationController
 
   def destroy
     @password.destroy
-    redirect_to passwords_path, notice: "Deleted"
+    redirect_to passwords_path
   end
 
   def create
     @password = current_user.passwords.build(password_params)
 
     if @password.save
-      redirect_to passwords_path, notice: "Password created"
+      redirect_to passwords_path
     else
       render :index
     end

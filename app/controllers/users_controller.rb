@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     @user = current_user
 
     if @user.update(user_params)
-      redirect_to passwords_path, notice: "Profile updated"
+      redirect_to passwords_path
     else
       render :edit
     end
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def destroy
     current_user.destroy
     reset_session
-    redirect_to login_path, notice: "Account deleted"
+    redirect_to login_path
   end
 
 private
