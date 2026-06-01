@@ -766,3 +766,52 @@ kbd {
 #search {
   border: none;
 }
+
+.settings-grid {
+  display: grid;
+  gap: 20px;
+  max-width: 900px;
+}
+
+.settings-card {
+  padding: 24px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.settings-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.glass-btn-danger,
+button.glass-btn-danger,
+input.glass-btn-danger {
+  background: rgba(255, 0, 0, 0.15);
+  border: 1px solid rgba(255, 80, 80, 0.4);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: all 0.2s ease;
+}
+
+.glass-btn-danger:hover {
+  background: rgba(255, 0, 0, 0.25);
+  border-color: rgba(255, 80, 80, 0.8);
+  transform: translateY(-1px);
+}
+
+form.inline {
+  display: inline-block;
+  margin: 0;
+}

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   delete "/logout", to: "sessions#destroy"
 
   get "/welcome", to: "sessions#welcome"
+  get "/settings", to: "settings#index"
 
   resources :passwords
   resources :users, only: [ :edit, :update, :destroy ]

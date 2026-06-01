@@ -1,0 +1,27 @@
+<h1>Settings</h1>
+
+<div class="settings-grid">
+  <div class="settings-card">
+    <h2>Account</h2>
+    <p><%= current_user.name %></p>
+    <p><%= current_user.email %></p>
+  </div>
+
+  <div class="settings-card">
+    <h2>Security</h2>
+
+    <%= link_to "👤 Edit Account",
+      edit_user_path(current_user),
+      class: "glass-btn" %>
+  </div>
+
+  <div class="settings-card">
+    <h2>Danger Zone</h2>
+
+    <%= button_to "❌ Delete Account",
+      user_path(current_user),
+      method: :delete,
+      data: { confirm: "Are you sure?" },
+      class: "dropdown-item danger-btn" %>
+  </div>
+</div>

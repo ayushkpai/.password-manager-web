@@ -1,4 +1,5 @@
 <% content_for :title, "Passwords"  %>
+<h1>Passwords</h1>
 
 <div class="search-section">
   <div class="spotlight-wrapper">
@@ -7,7 +8,7 @@
       <input
       type="text"
       id="search"
-      placeholder="Search passwords..."
+      placeholder="🔍 Search passwords..."
       onkeyup="filterPasswords()"
       class="spotlight-input"
     />
@@ -27,7 +28,7 @@
           onmousedown="reveal(this)"
           onmouseup="hide(this)"
           onmouseleave="hide(this)">
-          ••••••••••••
+          
         </div>
 
         <button
@@ -70,7 +71,7 @@
   }
 
   function hide(el) {
-    el.innerText = "••••••••••••";
+    el.innerText = "";
   }
 
   function copyPassword(password, button) {
