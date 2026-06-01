@@ -768,3 +768,67 @@ a:hover,
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   margin: 0 0 12px 0;
 }
+
+.offcanvas {
+  background: rgba(10, 12, 20, 0.85) !important;
+  backdrop-filter: blur(25px);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.offcanvas-title {
+  color: white;
+  font-weight: 600;
+}
+
+.offcanvas-body h6 {
+  margin-top: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.offcanvas-body p,
+.offcanvas-body li {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.glass-offcanvas {
+  background: rgba(10, 12, 20, 0.65) !important;
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
+
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: -30px 0 80px rgba(0, 0, 0, 0.6);
+
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.glass-offcanvas-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+}
+
+.glass-offcanvas-title {
+  color: white;
+  font-weight: 600;
+}
+
+.glass-offcanvas-body {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.glass-offcanvas-body h6 {
+  color: rgba(255, 255, 255, 0.9);
+  margin-top: 1rem;
+}
+
+.glass-offcanvas-body p,
+.glass-offcanvas-body li {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* backdrop blur */
+.offcanvas-backdrop.show {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(5px);
+}

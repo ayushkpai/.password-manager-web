@@ -1,22 +1,46 @@
 <aside class="sidebar">
   <nav class="nav">
+
     <%= link_to "🏠 Home", root_path %>
+
     <% if current_user %>
+
       <%= link_to "🔑 Passwords", passwords_path %>
       <%= link_to "⚙️ Settings", settings_path %>
+
       <hr class="divider">
-      <%= link_to "➕ Add Password", "#", data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %>
+
+      <%= link_to "➕ Add Password", "#",
+        data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %>
+
+      <%= link_to "📄 Privacy Policy", "#",
+        class: "nav-link",
+        data: { bs_toggle: "offcanvas", bs_target: "#privacyOffcanvas" } %>
+
+<%= link_to "📘 How to use", "#",
+  class: "nav-link",
+  data: { bs_toggle: "offcanvas", bs_target: "#helpOffcanvas" } %>
+
     <% end %>
+
   </nav>
 
   <div class="sidebar-bottom">
+
     <% if current_user %>
-      <p>Scroll down</p>
-      <hr class="divider">
-      <%= button_to "🚪 Sign Out", logout_path, method: :delete, class: "dropdown-item danger-btn" %></div>
+
+
+      <%= button_to "🚪 Sign Out",
+        logout_path,
+        method: :delete,
+        class: "dropdown-item danger-btn" %>
+
     <% else %>
+
       <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
       <%= link_to "Sign Up", signup_path, class: "btn btn-outline-success" %>
+
     <% end %>
+
   </div>
 </aside>
