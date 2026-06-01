@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "passwords#index"
+  root "sessions#welcome"
   get "up" => "rails/health#show", as: :rails_health_check
 
   get "/signup", to: "users#new"

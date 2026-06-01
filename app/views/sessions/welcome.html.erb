@@ -1,8 +1,10 @@
-<% content_for :title, "Welcome Back, #{current_user.name}"  %>
-<h2>Hello <%= current_user.name %></h2>
-
 <% if current_user %>
+    <% content_for :title, "Welcome Back, #{current_user.name}"  %>
+    <h2>Hello <%= current_user.name %></h2>
     <p><%= link_to "Passwords", passwords_path %></p>
+<% else %>
+    <% content_for :title, "Hello"  %>
+    <h2>Hello</h2>
+    <%= link_to "Sign In", login_path, class: "btn btn-dark" %>
+    <%= link_to "Sign Up", signup_path, class: "btn btn-outline-primary" %>
 <% end %>
-
-<%= image_tag "logo.png" %>

@@ -6,25 +6,19 @@
 
   <div class="ms-auto d-flex align-items-center gap-3">
     <% if current_user %>
-      <%= link_to "Add Password",
-        "#",
-        class: "glass-btn",
-        data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %>
-
       <div class="profile-dropdown">
         <div class="profile-icon" onclick="toggleMenu()"><%= current_user.name.first.upcase %></div>
         <div class="dropdown-menu" id="profileMenu">
           <div class="dropdown-user"><%= current_user.name.upcase %></div>
 
+          <%= button_to "⚙️ Settings",
+           settings_path, 
+           method: :get,
+           class: "dropdown-item" %>
+
           <%= button_to "🚪 Sign Out",
             logout_path,
             method: :delete,
-            class: "dropdown-item danger-btn" %>
-
-          <%= button_to "❌ Delete Account",
-            user_path(current_user),
-            method: :delete,
-            data: { confirm: "Are you sure?" },
             class: "dropdown-item danger-btn" %>
         </div>
       </div>

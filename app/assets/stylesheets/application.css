@@ -489,7 +489,7 @@ h1 {
   font-weight: 600;
   color: white;
 
-  background: linear-gradient(135deg, #4ab2df, #000000, #b265ce93);
+  background: linear-gradient(135deg, #60bbe2cd, #830bec);
 
   cursor: pointer;
 
@@ -686,9 +686,12 @@ a:hover {
   left: 12px;
 
   width: 240px;
-  height: calc(100vh - 24px);
+  height: calc(100vh - 100px);
 
   padding: 18px;
+
+  display: flex;
+  flex-direction: column;
 
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -696,8 +699,6 @@ a:hover {
 
   backdrop-filter: blur(28px);
   -webkit-backdrop-filter: blur(28px);
-
-  overflow: hidden;
 }
 
 .nav {
@@ -707,18 +708,17 @@ a:hover {
 }
 
 .nav a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.85);
   padding: 12px 16px;
   border-radius: 14px;
-
-  color: rgba(255, 255, 255, 0.85);
-  text-decoration: none;
-
   transition: all 0.2s ease;
 }
 
 .nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: rgba(96, 165, 250, 0.8);
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(120, 170, 255, 0.35);
 }
 
 .main-content {
@@ -814,4 +814,53 @@ input.glass-btn-danger {
 form.inline {
   display: inline-block;
   margin: 0;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+a,
+a:visited {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none !important;
+  transition: 0.2s ease;
+}
+
+a:hover,
+.nav a:hover,
+.dropdown-item:hover {
+  color: #60a5fa;
+  text-decoration: none !important;
+  border-bottom: 1px solid #60a5fa;
+}
+
+.nav a,
+.nav-link {
+  display: block;
+  padding: 12px 16px;
+  border-radius: 14px;
+
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.danger {
+  color: rgba(255, 100, 100, 0.9);
+}
+
+.danger:hover {
+  background: rgba(255, 0, 0, 0.12);
+  color: white;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin: 0 0 12px 0;
 }
