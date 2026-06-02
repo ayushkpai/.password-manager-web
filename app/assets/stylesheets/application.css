@@ -9,6 +9,67 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+
+button, a, input, .password, .glass-btn {
+  transition: all 0.2s ease;
+}
+
+:focus {
+  outline: 2px solid rgba(96, 165, 250, 0.6);
+  outline-offset: 2px;
+}
+
+input, textarea, select {
+  font: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+  }
+
+  .main-content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .password-list {
+    padding: 0 12px;
+  }
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
 h1 {
   text-align: center;
   margin-top: 2.5rem;
@@ -247,6 +308,7 @@ h1 {
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
 
   z-index: 1000;
+  justify-content: space-between;
 }
 
 .glass-btn {
@@ -368,11 +430,6 @@ h1 {
   outline: none;
 }
 
-.glass-btn-danger {
-  background: rgba(255, 0, 0, 0.15);
-  border: 1px solid rgba(255, 80, 80, 0.4);
-}
-
 .glass-btn-danger:hover {
   background: rgba(255, 0, 0, 0.25);
   border-color: rgba(255, 80, 80, 0.8);
@@ -446,7 +503,7 @@ h1 {
   display: none;
 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-
+  
   z-index: 9999;
 }
 
@@ -469,21 +526,8 @@ h1 {
   transition: 0.2s;
 }
 
-.dropdown-menu {
-  display: none;
-}
-
 .dropdown-menu.show {
   display: block;
-}
-
-.dropdown-menu {
-  background: #fff;
-}
-
-.dropdown-menu {
-  background: rgba(10, 12, 20, 0.75) !important;
-  color: white !important;
 }
 
 .dropdown-item {
@@ -524,10 +568,6 @@ h1 {
   color: #ff6b6b !important;
 }
 
-.glass-navbar {
-  justify-content: space-between;
-}
-
 label,
 p,
 h1,
@@ -545,18 +585,6 @@ h6 {
 
 .page-title {
   color: white;
-}
-
-:root {
-  --text-color: rgba(0, 0, 0, 0.85);
-  --heading-color: rgba(0, 0, 0, 0.9);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: rgba(255, 255, 255, 0.85);
-    --heading-color: rgba(255, 255, 255, 0.95);
-  }
 }
 
 body {
@@ -725,13 +753,6 @@ form.inline {
 
   padding-top: 12px;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-a,
-a:visited {
-  color: rgba(255, 255, 255, 0.75);
-  text-decoration: none !important;
-  transition: 0.2s ease;
 }
 
 a:hover,
