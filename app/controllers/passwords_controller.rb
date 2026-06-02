@@ -38,6 +38,6 @@ private
   end
 
   def password_params
-    params.require(:password).permit(:app, :password)
+    params.require(:password).permit(:app, :username, :password)
   end
 end

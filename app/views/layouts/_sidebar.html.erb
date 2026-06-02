@@ -29,18 +29,23 @@
       <%= link_to "ℹ️ About Us", "#",
         class: "nav-link",
         data: { bs_toggle: "offcanvas", bs_target: "#aboutOffcanvas" } %>
+    <% else %>
+      <%= link_to "Sign In",
+        login_path,
+        class: "nav-link #{'active-nav' if current_page?(login_path)}" %>
+
+      <%= link_to "Sign Up",
+        signup_path,
+        class: "nav-link #{'active-nav' if current_page?(signup_path)}" %>
     <% end %>
   </nav>
 
-  <div class="sidebar-bottom">
-    <% if current_user %>
+  <% if current_user %>
+    <div class="sidebar-bottom">
       <%= button_to "🚪 Sign Out",
         logout_path,
         method: :delete,
         class: "dropdown-item danger-btn" %>
-    <% else %>
-      <%= link_to "Sign In", login_path, class: "btn btn-primary" %>
-      <%= link_to "Sign Up", signup_path, class: "btn btn-outline-success" %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </aside>

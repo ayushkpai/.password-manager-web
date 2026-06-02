@@ -418,7 +418,7 @@ h1 {
   font-weight: 600;
   color: white;
 
-  background: linear-gradient(135deg, #3891b7, #830bec);
+  background: linear-gradient(135deg, #3891b7);
 
   cursor: pointer;
 
@@ -765,7 +765,7 @@ a:hover,
 
 .divider {
   border: none;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.274);
   margin: 0 0 12px 0;
 }
 

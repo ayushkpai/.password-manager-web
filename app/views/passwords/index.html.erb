@@ -19,6 +19,9 @@
   <% @passwords.each do |p| %>
     <section class="password">
       <h2><%= p.app %></h2>
+      
+      <hr class="divider">
+      <h4><%= p.username %></h4>
 
       <div class="password-row">
         <div
@@ -27,7 +30,6 @@
           onmousedown="reveal(this)"
           onmouseup="hide(this)"
           onmouseleave="hide(this)">
-          
         </div>
 
         <button
@@ -38,16 +40,16 @@
       </div>
 
       <div class="actions">
-      <%= link_to "Edit",
+        <%= link_to "Edit",
           edit_password_path(p),
           class: "glass-btn" %>
 
-      <%= button_to "Delete",
+        <%= button_to "Delete",
           password_path(p),
           method: :delete,
           data: { confirm: "Delete this password?" },
           class: "glass-btn glass-btn-danger" %>
-    </div>
+      </div>
     </section>
   <% end %>
 </div>

@@ -11,12 +11,16 @@
         </button>
       </div>
         <div class="modal-body">
-
           <%= form_with model: Password.new, url: passwords_path do |f| %>
 
             <div class="mb-3">
               <%= f.label :app %>
               <%= f.text_field :app, class: "form-control" %>
+            </div>
+
+            <div class="mb-3">
+              <%= f.label :username %>
+              <%= f.text_field :username, class: "form-control" %>
             </div>
 
             <div class="mb-3">
