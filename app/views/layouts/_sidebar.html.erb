@@ -17,11 +17,13 @@
 
       <%= link_to "➕ Add Password", "#",
         data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %>
+    <% end %>
 
       <%= link_to "📄 Privacy Policy", "#",
         class: "nav-link",
         data: { bs_toggle: "offcanvas", bs_target: "#privacyOffcanvas" } %>
 
+    <% if current_user %>
       <%= link_to "📘 How to use", "#",
         class: "nav-link",
         data: { bs_toggle: "offcanvas", bs_target: "#helpOffcanvas" } %>
