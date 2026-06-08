@@ -1,123 +1,128 @@
 <% content_for :title, "Passwords"  %>
-<h1>Passwords</h1>
 
-<div class="search-section">
-  <div class="spotlight-wrapper">
-    <div class="shortcut-hint">
-      <input
-      type="text"
-      id="search"
-      placeholder="🔍 Search passwords..."
-      onkeyup="filterPasswords()"
-      class="spotlight-input"
-    />
-    <kbd>⌘</kbd><kbd>K</kbd></div>
+<% if @passwords.present? %>
+  <h1>Passwords</h1>
+
+  <div class="search-section">
+    <div class="spotlight-wrapper">
+      <div class="shortcut-hint">
+        <input
+        type="text"
+        id="search"
+        placeholder="🔍 Search"
+        onkeyup="filterPasswords()"
+        class="spotlight-input"
+      />
+      <kbd>⌘</kbd><kbd>K</kbd>
+    </div>
   </div>
-</div>
 
-<div class="password-list">
-  <% @passwords.each do |p| %>
-    <section class="password">
-      <h2><%= p.app %></h2>
-      
-      <hr class="divider">
-      <h4><%= p.username %></h4>
+  <div class="password-list">
+    <% @passwords.each do |p| %>
+      <section class="password">
+        <h2><%= p.app %></h2>
+        
+        <hr class="divider">
+        <h4><%= p.username %></h4>
 
-      <div class="password-row">
-        <div
-          class="password-value"
-          data-password="<%= p.password %>"
-          onmousedown="reveal(this)"
-          onmouseup="hide(this)"
-          onmouseleave="hide(this)">
+        <div class="password-row">
+          <div
+            class="password-value"
+            data-password="<%= p.password %>"
+            onmousedown="reveal(this)"
+            onmouseup="hide(this)"
+            onmouseleave="hide(this)">
+          </div>
+
+          <button
+            class="copy-text-btn"
+            onclick="copyPassword('<%= j p.password %>', this)">
+            <img src="/copy.svg" class="icon">
+          </button>
         </div>
 
-        <button
-          class="copy-text-btn"
-          onclick="copyPassword('<%= j p.password %>', this)">
-          Copy
-        </button>
-      </div>
+        <div class="actions">
+          <%= link_to image_tag("pencil.svg"),
+            edit_password_path(p),
+            class: "glass-btn" %>
 
-      <div class="actions">
-        <%= link_to "Edit",
-          edit_password_path(p),
-          class: "glass-btn" %>
+          <%= button_to image_tag("trash.svg"),
+            password_path(p),
+            method: :delete,
+            data: { confirm: "Delete this password?" },
+            class: "glass-btn glass-btn-danger" %>
+        </div>
+      </section>
+    <% end %>
+  </div>
 
-        <%= button_to "Delete",
-          password_path(p),
-          method: :delete,
-          data: { confirm: "Delete this password?" },
-          class: "glass-btn glass-btn-danger" %>
-      </div>
-    </section>
-  <% end %>
-</div>
+  <script>
+    const hideTimers = new WeakMap();
 
-<script>
-  const hideTimers = new WeakMap();
+    function reveal(el) {
+      if (hideTimers.has(el)) {
+        clearTimeout(hideTimers.get(el));
+      }
 
-  function reveal(el) {
-    if (hideTimers.has(el)) {
-      clearTimeout(hideTimers.get(el));
+      el.innerText = el.dataset.password;
+
+      const timer = setTimeout(() => {
+        hide(el);
+      }, 15000);
+
+      hideTimers.set(el, timer);
     }
 
-    el.innerText = el.dataset.password;
+    function hide(el) {
+      el.innerText = "";
+    }
 
-    const timer = setTimeout(() => {
-      hide(el);
-    }, 15000);
+    function copyPassword(password, button) {
+      navigator.clipboard.writeText(password);
 
-    hideTimers.set(el, timer);
-  }
+      button.classList.add("copied");
 
-  function hide(el) {
-    el.innerText = "";
-  }
+      setTimeout(() => {
+        button.classList.remove("copied");
+      }, 1200);
+    }
 
-  function copyPassword(password, button) {
-    navigator.clipboard.writeText(password);
+    function filterPasswords() {
+      const query = document.getElementById("search").value.toLowerCase();
 
-    button.classList.add("copied");
-
-    setTimeout(() => {
-      button.classList.remove("copied");
-    }, 1200);
-  }
-
-  function filterPasswords() {
-    const query = document.getElementById("search").value.toLowerCase();
-
-    document.querySelectorAll(".password").forEach(card => {
-      const app = card.querySelector("h2").innerText.toLowerCase();
-      card.style.display = app.includes(query) ? "block" : "none";
-    });
-  }
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.hidden) {
-      document.querySelectorAll(".password-value").forEach(el => {
-        hide(el);
+      document.querySelectorAll(".password").forEach(card => {
+        const app = card.querySelector("h2").innerText.toLowerCase();
+        card.style.display = app.includes(query) ? "block" : "none";
       });
     }
-  });
-</script>
 
-<script>
-  document.addEventListener("keydown", (e) => {
-    if (e.metaKey && e.key.toLowerCase() === "k") {
-      e.preventDefault();
-
-      const input = document.getElementById("search");
-      if (input) {
-        input.focus();
-        input.select();
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+        document.querySelectorAll(".password-value").forEach(el => {
+          hide(el);
+        });
       }
-    }
+    });
+  </script>
 
-    if (e.key === "Escape") {
-      const input = document.getElementById("search");
-      if (input) input.blur();
-    }
-  });
-</script>
+  <script>
+    document.addEventListener("keydown", (e) => {
+      if (e.metaKey && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+
+        const input = document.getElementById("search");
+        if (input) {
+          input.focus();
+          input.select();
+        }
+      }
+
+      if (e.key === "Escape") {
+        const input = document.getElementById("search");
+        if (input) input.blur();
+      }
+    });
+  </script>
+<% else %>
+  <p>You dont have any passwords <%= link_to "Add Passwords",  "#", data: { bs_toggle: "modal", bs_target: "#addPasswordModal" } %></p>
+<% end %>

@@ -475,7 +475,7 @@ h1 {
   font-weight: 600;
   color: white;
 
-  background: linear-gradient(135deg, #00b3ff);
+  background: linear-gradient(135deg, #18416f);
 
   cursor: pointer;
 
@@ -588,7 +588,7 @@ h6 {
 }
 
 body {
-  background: radial-gradient(circle at top, #0b1220, #05060c);
+  background: radial-gradient(circle at top, #252c39, #1e2133);
 }
 
 a {
@@ -885,4 +885,16 @@ a:hover:not(.btn, .image_tag) {
 
 a {
   text-decoration: none;
+}
+
+.glass-btn img {
+  width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  filter: brightness(0) invert(1);
 }
